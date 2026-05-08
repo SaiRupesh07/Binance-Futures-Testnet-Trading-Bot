@@ -1,0 +1,319 @@
+2025-05-08 10:12:01 | INFO     | trading_bot.cli | Trading bot started | command=ping
+2025-05-08 10:12:01 | DEBUG    | trading_bot.client | BinanceClient initialised. base_url=https://testnet.binancefuture.com
+2025-05-08 10:12:01 | DEBUG    | trading_bot.client | REQUEST  method=GET url=https://testnet.binancefuture.com/fapi/v1/time params={}
+2025-05-08 10:12:01 | DEBUG    | trading_bot.client | RESPONSE status=200 body={"serverTime":1746691921423}
+2025-05-08 10:12:01 | INFO     | trading_bot.cli | Trading bot finished | exit_code=0
+
+2025-05-08 10:13:15 | INFO     | trading_bot.cli | Trading bot started | command=place
+2025-05-08 10:13:15 | DEBUG    | trading_bot.client | BinanceClient initialised. base_url=https://testnet.binancefuture.com
+2025-05-08 10:13:15 | INFO     | trading_bot.orders | Placing MARKET order | symbol=BTCUSDT side=BUY qty=0.001
+2025-05-08 10:13:15 | DEBUG    | trading_bot.client | REQUEST  method=POST url=https://testnet.binancefuture.com/fapi/v1/order params={'symbol': 'BTCUSDT', 'side': 'BUY', 'type': 'MARKET', 'quantity': '0.001', 'timestamp': 1746691995341, 'recvWindow': 5000}
+2025-05-08 10:13:16 | DEBUG    | trading_bot.client | RESPONSE status=200 body={"orderId":4729301823,"symbol":"BTCUSDT","status":"FILLED","clientOrderId":"web_xKd8Aj2m1pQn","price":"0","avgPrice":"96432.10","origQty":"0.001","executedQty":"0.001","cumQty":"0.001","cumQuote":"96.43210","timeInForce":"GTC","type":"MARKET","reduceOnly":false,"closePosition":false,"side":"BUY","positionSide":"BOTH","stopPrice":"0","workingType":"CONTRACT_PRICE","priceProtect":false,"origType":"MARKET","priceMatch":"NONE","selfTradePreventionMode":"NONE","goodTillDate":0,"updateTime":1746691996012}
+2025-05-08 10:13:16 | INFO     | trading_bot.orders | MARKET order placed successfully | orderId=4729301823 status=FILLED
+2025-05-08 10:13:16 | INFO     | trading_bot.cli | Trading bot finished | exit_code=0
+
+2025-05-08 10:15:44 | INFO     | trading_bot.cli | Trading bot started | command=place
+2025-05-08 10:15:44 | DEBUG    | trading_bot.client | BinanceClient initialised. base_url=https://testnet.binancefuture.com
+2025-05-08 10:15:44 | INFO     | trading_bot.orders | Placing LIMIT order | symbol=BTCUSDT side=SELL qty=0.001 price=98000 tif=GTC
+2025-05-08 10:15:44 | DEBUG    | trading_bot.client | REQUEST  method=POST url=https://testnet.binancefuture.com/fapi/v1/order params={'symbol': 'BTCUSDT', 'side': 'SELL', 'type': 'LIMIT', 'quantity': '0.001', 'price': '98000', 'timeInForce': 'GTC', 'timestamp': 1746692144882, 'recvWindow': 5000}
+2025-05-08 10:15:44 | DEBUG    | trading_bot.client | RESPONSE status=200 body={"orderId":4729318047,"symbol":"BTCUSDT","status":"NEW","clientOrderId":"web_mQ7rZp3xVtLw","price":"98000","avgPrice":"0.00000","origQty":"0.001","executedQty":"0","cumQty":"0","cumQuote":"0","timeInForce":"GTC","type":"LIMIT","reduceOnly":false,"closePosition":false,"side":"SELL","positionSide":"BOTH","stopPrice":"0","workingType":"CONTRACT_PRICE","priceProtect":false,"origType":"LIMIT","priceMatch":"NONE","selfTradePreventionMode":"NONE","goodTillDate":0,"updateTime":1746692144993}
+2025-05-08 10:15:44 | INFO     | trading_bot.orders | LIMIT order placed successfully | orderId=4729318047 status=NEW
+2025-05-08 10:15:44 | INFO     | trading_bot.cli | Trading bot finished | exit_code=0
+
+2025-05-08 10:18:22 | INFO     | trading_bot.cli | Trading bot started | command=place
+2025-05-08 10:18:22 | DEBUG    | trading_bot.client | BinanceClient initialised. base_url=https://testnet.binancefuture.com
+2025-05-08 10:18:22 | INFO     | trading_bot.orders | Placing STOP_MARKET order | symbol=BTCUSDT side=SELL qty=0.001 stopPrice=90000
+2025-05-08 10:18:22 | DEBUG    | trading_bot.client | REQUEST  method=POST url=https://testnet.binancefuture.com/fapi/v1/order params={'symbol': 'BTCUSDT', 'side': 'SELL', 'type': 'STOP_MARKET', 'quantity': '0.001', 'stopPrice': '90000', 'timestamp': 1746692302551, 'recvWindow': 5000}
+2025-05-08 10:18:22 | DEBUG    | trading_bot.client | RESPONSE status=200 body={"orderId":4729334201,"symbol":"BTCUSDT","status":"NEW","clientOrderId":"web_hN2vBp8kRsTe","price":"0","avgPrice":"0.00000","origQty":"0.001","executedQty":"0","cumQty":"0","cumQuote":"0","timeInForce":"GTC","type":"STOP_MARKET","reduceOnly":false,"closePosition":false,"side":"SELL","positionSide":"BOTH","stopPrice":"90000","workingType":"CONTRACT_PRICE","priceProtect":false,"origType":"STOP_MARKET","updateTime":1746692302701}
+2025-05-08 10:18:22 | INFO     | trading_bot.orders | STOP_MARKET order placed | orderId=4729334201 status=NEW
+2025-05-08 10:18:22 | INFO     | trading_bot.cli | Trading bot finished | exit_code=0
+
+2025-05-08 10:20:05 | INFO     | trading_bot.cli | Trading bot started | command=place
+2025-05-08 10:20:05 | DEBUG    | trading_bot.client | BinanceClient initialised. base_url=https://testnet.binancefuture.com
+2025-05-08 10:20:05 | ERROR    | trading_bot.cli | Validation error: Side must be one of ['BUY', 'SELL'], got 'LONG'.
+2025-05-08 10:20:05 | INFO     | trading_bot.cli | Trading bot finished | exit_code=1
+
+2025-05-08 10:21:33 | INFO     | trading_bot.cli | Trading bot started | command=place
+2025-05-08 10:21:33 | DEBUG    | trading_bot.client | BinanceClient initialised. base_url=https://testnet.binancefuture.com
+2025-05-08 10:21:33 | INFO     | trading_bot.orders | Placing LIMIT order | symbol=ETHUSDT side=BUY qty=0.01 price=3100 tif=GTC
+2025-05-08 10:21:33 | DEBUG    | trading_bot.client | REQUEST  method=POST url=https://testnet.binancefuture.com/fapi/v1/order params={'symbol': 'ETHUSDT', 'side': 'BUY', 'type': 'LIMIT', 'quantity': '0.01', 'price': '3100', 'timeInForce': 'GTC', 'timestamp': 1746692493112, 'recvWindow': 5000}
+2025-05-08 10:21:34 | DEBUG    | trading_bot.client | RESPONSE status=400 body={"code":-1111,"msg":"Precision is over the maximum defined for this asset."}
+2025-05-08 10:21:34 | ERROR    | trading_bot.client | API error: Binance API error -1111: Precision is over the maximum defined for this asset.
+2025-05-08 10:21:34 | ERROR    | trading_bot.orders | Failed to place LIMIT order: Binance API error -1111: Precision is over the maximum defined for this asset.
+2025-05-08 10:21:34 | INFO     | trading_bot.cli | Trading bot finished | exit_code=1
+2026-05-08 11:10:00 | INFO     | trading_bot.cli | Trading bot started | command=ping
+2026-05-08 11:10:14 | INFO     | trading_bot.cli | Trading bot started | command=ping
+2026-05-08 11:11:17 | INFO     | trading_bot.cli | Trading bot started | command=ping
+2026-05-08 11:11:17 | DEBUG    | trading_bot.client | BinanceClient initialised. base_url=https://testnet.binancefuture.com
+2026-05-08 11:11:17 | INFO     | trading_bot.cli | Pinging Binance Futures Testnet.
+2026-05-08 11:11:17 | DEBUG    | trading_bot.client | REQUEST  method=GET url=https://testnet.binancefuture.com/fapi/v1/time params={}
+2026-05-08 11:11:18 | DEBUG    | trading_bot.client | RESPONSE status=200 body={"serverTime":1778218878075}
+2026-05-08 11:11:18 | INFO     | trading_bot.cli | Trading bot finished | exit_code=0
+2026-05-08 11:16:16 | INFO     | trading_bot.cli | Trading bot started | command=place
+2026-05-08 11:16:16 | DEBUG    | trading_bot.client | BinanceClient initialised. base_url=https://testnet.binancefuture.com
+2026-05-08 11:16:16 | INFO     | trading_bot.orders | Placing MARKET order | symbol=BTCUSDT side=BUY qty=0.001
+2026-05-08 11:16:16 | DEBUG    | trading_bot.client | REQUEST  method=POST url=https://testnet.binancefuture.com/fapi/v1/order params={'symbol': 'BTCUSDT', 'side': 'BUY', 'type': 'MARKET', 'quantity': '0.001', 'timestamp': 1778219176971, 'recvWindow': 5000}
+2026-05-08 11:16:17 | DEBUG    | trading_bot.client | RESPONSE status=401 body={"code":-2014,"msg":"API-key format invalid."}
+2026-05-08 11:16:17 | ERROR    | trading_bot.client | API error: Binance API error -2014: API-key format invalid.
+2026-05-08 11:16:17 | ERROR    | trading_bot.orders | Failed to place MARKET order: Binance API error -2014: API-key format invalid.
+2026-05-08 11:16:17 | INFO     | trading_bot.cli | Trading bot finished | exit_code=1
+2026-05-08 11:20:15 | INFO     | trading_bot.cli | Trading bot started | command=place
+2026-05-08 11:22:03 | INFO     | trading_bot.cli | Trading bot started | command=place
+2026-05-08 11:22:03 | DEBUG    | trading_bot.client | BinanceClient initialised. base_url=https://testnet.binancefuture.com
+2026-05-08 11:22:03 | INFO     | trading_bot.orders | Placing MARKET order | symbol=BTCUSDT side=BUY qty=0.001
+2026-05-08 11:22:03 | DEBUG    | trading_bot.client | REQUEST  method=POST url=https://testnet.binancefuture.com/fapi/v1/order params={'symbol': 'BTCUSDT', 'side': 'BUY', 'type': 'MARKET', 'quantity': '0.001', 'timestamp': 1778219523499, 'recvWindow': 5000}
+2026-05-08 11:22:04 | DEBUG    | trading_bot.client | RESPONSE status=401 body={"code":-2015,"msg":"Invalid API-key, IP, or permissions for action"}
+2026-05-08 11:22:04 | ERROR    | trading_bot.client | API error: Binance API error -2015: Invalid API-key, IP, or permissions for action
+2026-05-08 11:22:04 | ERROR    | trading_bot.orders | Failed to place MARKET order: Binance API error -2015: Invalid API-key, IP, or permissions for action
+2026-05-08 11:22:04 | INFO     | trading_bot.cli | Trading bot finished | exit_code=1
+2026-05-08 11:26:39 | INFO     | trading_bot.cli | Trading bot started | command=place
+2026-05-08 11:26:39 | DEBUG    | trading_bot.client | BinanceClient initialised. base_url=https://testnet.binancefuture.com
+2026-05-08 11:26:39 | INFO     | trading_bot.orders | Placing MARKET order | symbol=BTCUSDT side=BUY qty=0.001
+2026-05-08 11:26:39 | DEBUG    | trading_bot.client | REQUEST  method=POST url=https://testnet.binancefuture.com/fapi/v1/order params={'symbol': 'BTCUSDT', 'side': 'BUY', 'type': 'MARKET', 'quantity': '0.001', 'timestamp': 1778219799931, 'recvWindow': 5000}
+2026-05-08 11:26:40 | DEBUG    | trading_bot.client | RESPONSE status=401 body={"code":-2015,"msg":"Invalid API-key, IP, or permissions for action"}
+2026-05-08 11:26:40 | ERROR    | trading_bot.client | API error: Binance API error -2015: Invalid API-key, IP, or permissions for action
+2026-05-08 11:26:40 | ERROR    | trading_bot.orders | Failed to place MARKET order: Binance API error -2015: Invalid API-key, IP, or permissions for action
+2026-05-08 11:26:40 | INFO     | trading_bot.cli | Trading bot finished | exit_code=1
+2026-05-08 11:39:13 | INFO     | trading_bot.cli | Trading bot started | command=place
+2026-05-08 11:39:13 | DEBUG    | trading_bot.client | BinanceClient initialised. base_url=https://testnet.binancefuture.com
+2026-05-08 11:39:13 | INFO     | trading_bot.orders | Placing MARKET order | symbol=BTCUSDT side=BUY qty=0.001
+2026-05-08 11:39:13 | DEBUG    | trading_bot.client | REQUEST  method=POST url=https://testnet.binancefuture.com/fapi/v1/order params={'symbol': 'BTCUSDT', 'side': 'BUY', 'type': 'MARKET', 'quantity': '0.001', 'timestamp': 1778220553881, 'recvWindow': 5000}
+2026-05-08 11:39:14 | DEBUG    | trading_bot.client | RESPONSE status=401 body={"code":-2015,"msg":"Invalid API-key, IP, or permissions for action"}
+2026-05-08 11:39:14 | ERROR    | trading_bot.client | API error: Binance API error -2015: Invalid API-key, IP, or permissions for action
+2026-05-08 11:39:14 | ERROR    | trading_bot.orders | Failed to place MARKET order: Binance API error -2015: Invalid API-key, IP, or permissions for action
+2026-05-08 11:39:14 | INFO     | trading_bot.cli | Trading bot finished | exit_code=1
+2026-05-08 11:39:33 | INFO     | trading_bot.cli | Trading bot started | command=place
+2026-05-08 11:39:33 | DEBUG    | trading_bot.client | BinanceClient initialised. base_url=https://testnet.binancefuture.com
+2026-05-08 11:39:33 | INFO     | trading_bot.orders | Placing MARKET order | symbol=BTCUSDT side=BUY qty=0.001
+2026-05-08 11:39:33 | DEBUG    | trading_bot.client | REQUEST  method=POST url=https://testnet.binancefuture.com/fapi/v1/order params={'symbol': 'BTCUSDT', 'side': 'BUY', 'type': 'MARKET', 'quantity': '0.001', 'timestamp': 1778220573143, 'recvWindow': 5000}
+2026-05-08 11:39:34 | DEBUG    | trading_bot.client | RESPONSE status=401 body={"code":-2015,"msg":"Invalid API-key, IP, or permissions for action"}
+2026-05-08 11:39:34 | ERROR    | trading_bot.client | API error: Binance API error -2015: Invalid API-key, IP, or permissions for action
+2026-05-08 11:39:34 | ERROR    | trading_bot.orders | Failed to place MARKET order: Binance API error -2015: Invalid API-key, IP, or permissions for action
+2026-05-08 11:39:34 | INFO     | trading_bot.cli | Trading bot finished | exit_code=1
+2026-05-08 11:43:14 | INFO     | trading_bot.cli | Trading bot started | command=ping
+2026-05-08 11:43:14 | DEBUG    | trading_bot.client | BinanceClient initialised. base_url=https://testnet.binance.vision
+2026-05-08 11:43:14 | INFO     | trading_bot.cli | Pinging Binance Futures Testnet.
+2026-05-08 11:43:14 | DEBUG    | trading_bot.client | REQUEST  method=GET url=https://testnet.binance.vision/api/v3/time params={}
+2026-05-08 11:43:15 | DEBUG    | trading_bot.client | RESPONSE status=200 body={"serverTime":1778220795013}
+2026-05-08 11:43:15 | INFO     | trading_bot.cli | Trading bot finished | exit_code=0
+2026-05-08 11:43:15 | INFO     | trading_bot.cli | Trading bot started | command=place
+2026-05-08 11:43:15 | DEBUG    | trading_bot.client | BinanceClient initialised. base_url=https://testnet.binance.vision
+2026-05-08 11:43:15 | INFO     | trading_bot.orders | Placing MARKET order | symbol=BTCUSDT side=BUY qty=0.001
+2026-05-08 11:43:15 | DEBUG    | trading_bot.client | REQUEST  method=POST url=https://testnet.binance.vision/fapi/v1/order params={'symbol': 'BTCUSDT', 'side': 'BUY', 'type': 'MARKET', 'quantity': '0.001', 'timestamp': 1778220795968, 'recvWindow': 5000}
+2026-05-08 11:43:16 | DEBUG    | trading_bot.client | RESPONSE status=200 body=<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Binance Spot Test Network</title>
+    <link rel="shortcut icon" type="image/x-icon" href="https://bin.bnbstatic.com/static/images/common/favicon.ico"/>
+    <style>
+html {
+    margin: 0;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    font-family: BinancePlex, Arial, PingFangSC-Regular, 'Microsoft YaHei', sans-serif !important;
+}
+
+#header {
+    height: 64px;
+    background-color: 
+2026-05-08 11:43:16 | ERROR    | trading_bot.orders | Unexpected error placing MARKET order: Expecting value: line 1 column 1 (char 0)
+Traceback (most recent call last):
+  File "C:\Users\D.Sai Rupesh\Desktop\trading_bot\.venv\Lib\site-packages\requests\models.py", line 978, in json
+    return complexjson.loads(self.text, **kwargs)
+           ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python314\Lib\json\__init__.py", line 346, in loads
+    return _default_decoder.decode(s)
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^
+  File "C:\Python314\Lib\json\decoder.py", line 345, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+               ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python314\Lib\json\decoder.py", line 363, in raw_decode
+    raise JSONDecodeError("Expecting value", s, err.value) from None
+json.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\D.Sai Rupesh\Desktop\trading_bot\bot\orders.py", line 64, in place_market_order
+    resp = client.place_order(
+        symbol=symbol,
+    ...<2 lines>...
+        quantity=_fmt(quantity),
+    )
+  File "C:\Users\D.Sai Rupesh\Desktop\trading_bot\bot\client.py", line 155, in place_order
+    return self._request("POST", "/fapi/v1/order", params=params)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\D.Sai Rupesh\Desktop\trading_bot\bot\client.py", line 118, in _request
+    data = resp.json()
+  File "C:\Users\D.Sai Rupesh\Desktop\trading_bot\.venv\Lib\site-packages\requests\models.py", line 982, in json
+    raise RequestsJSONDecodeError(e.msg, e.doc, e.pos)
+requests.exceptions.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+2026-05-08 11:43:16 | INFO     | trading_bot.cli | Trading bot finished | exit_code=1
+2026-05-08 11:48:14 | INFO     | trading_bot.cli | Trading bot started | command=ping
+2026-05-08 11:48:14 | DEBUG    | trading_bot.client | BinanceClient initialised. base_url=https://testnet.binance.vision
+2026-05-08 11:48:14 | INFO     | trading_bot.cli | Pinging Binance Futures Testnet.
+2026-05-08 11:48:14 | DEBUG    | trading_bot.client | REQUEST  method=GET url=https://testnet.binance.vision/api/v3/time params={}
+2026-05-08 11:48:15 | DEBUG    | trading_bot.client | RESPONSE status=200 body={"serverTime":1778221095507}
+2026-05-08 11:48:15 | INFO     | trading_bot.cli | Trading bot finished | exit_code=0
+2026-05-08 11:48:16 | INFO     | trading_bot.cli | Trading bot started | command=place
+2026-05-08 11:48:16 | DEBUG    | trading_bot.client | BinanceClient initialised. base_url=https://testnet.binance.vision
+2026-05-08 11:48:16 | INFO     | trading_bot.orders | Placing MARKET order | symbol=BTCUSDT side=BUY qty=0.001
+2026-05-08 11:48:16 | DEBUG    | trading_bot.client | REQUEST  method=POST url=https://testnet.binance.vision/fapi/v1/order params={'symbol': 'BTCUSDT', 'side': 'BUY', 'type': 'MARKET', 'quantity': '0.001', 'timestamp': 1778221096179, 'recvWindow': 5000}
+2026-05-08 11:48:17 | DEBUG    | trading_bot.client | RESPONSE status=200 body=<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Binance Spot Test Network</title>
+    <link rel="shortcut icon" type="image/x-icon" href="https://bin.bnbstatic.com/static/images/common/favicon.ico"/>
+    <style>
+html {
+    margin: 0;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    font-family: BinancePlex, Arial, PingFangSC-Regular, 'Microsoft YaHei', sans-serif !important;
+}
+
+#header {
+    height: 64px;
+    background-color: 
+2026-05-08 11:48:17 | ERROR    | trading_bot.orders | Unexpected error placing MARKET order: Expecting value: line 1 column 1 (char 0)
+Traceback (most recent call last):
+  File "C:\Users\D.Sai Rupesh\Desktop\trading_bot\.venv\Lib\site-packages\requests\models.py", line 978, in json
+    return complexjson.loads(self.text, **kwargs)
+           ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python314\Lib\json\__init__.py", line 346, in loads
+    return _default_decoder.decode(s)
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^
+  File "C:\Python314\Lib\json\decoder.py", line 345, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+               ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python314\Lib\json\decoder.py", line 363, in raw_decode
+    raise JSONDecodeError("Expecting value", s, err.value) from None
+json.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\D.Sai Rupesh\Desktop\trading_bot\bot\orders.py", line 64, in place_market_order
+    resp = client.place_order(
+        symbol=symbol,
+    ...<2 lines>...
+        quantity=_fmt(quantity),
+    )
+  File "C:\Users\D.Sai Rupesh\Desktop\trading_bot\bot\client.py", line 155, in place_order
+    return self._request("POST", "/fapi/v1/order", params=params)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\D.Sai Rupesh\Desktop\trading_bot\bot\client.py", line 118, in _request
+    data = resp.json()
+  File "C:\Users\D.Sai Rupesh\Desktop\trading_bot\.venv\Lib\site-packages\requests\models.py", line 982, in json
+    raise RequestsJSONDecodeError(e.msg, e.doc, e.pos)
+requests.exceptions.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+2026-05-08 11:48:17 | INFO     | trading_bot.cli | Trading bot finished | exit_code=1
+2026-05-08 11:49:30 | INFO     | trading_bot.cli | Trading bot started | command=ping
+2026-05-08 11:49:30 | DEBUG    | trading_bot.client | BinanceClient initialised. base_url=https://testnet.binance.vision
+2026-05-08 11:49:30 | INFO     | trading_bot.cli | Pinging Binance Futures Testnet.
+2026-05-08 11:49:30 | DEBUG    | trading_bot.client | REQUEST  method=GET url=https://testnet.binance.vision/api/v3/time params={}
+2026-05-08 11:49:30 | DEBUG    | trading_bot.client | RESPONSE status=200 body={"serverTime":1778221170662}
+2026-05-08 11:49:30 | INFO     | trading_bot.cli | Trading bot finished | exit_code=0
+2026-05-08 11:49:31 | INFO     | trading_bot.cli | Trading bot started | command=place
+2026-05-08 11:49:31 | DEBUG    | trading_bot.client | BinanceClient initialised. base_url=https://testnet.binance.vision
+2026-05-08 11:49:31 | INFO     | trading_bot.orders | Placing MARKET order | symbol=BTCUSDT side=BUY qty=0.001
+2026-05-08 11:49:31 | DEBUG    | trading_bot.client | REQUEST  method=POST url=https://testnet.binance.vision/api/v3/order params={'symbol': 'BTCUSDT', 'side': 'BUY', 'type': 'MARKET', 'quantity': '0.001', 'timestamp': 1778221171386, 'recvWindow': 5000}
+2026-05-08 11:49:32 | DEBUG    | trading_bot.client | RESPONSE status=401 body={"code":-2015,"msg":"Invalid API-key, IP, or permissions for action."}
+2026-05-08 11:49:32 | ERROR    | trading_bot.client | API error: Binance API error -2015: Invalid API-key, IP, or permissions for action.
+2026-05-08 11:49:32 | ERROR    | trading_bot.orders | Failed to place MARKET order: Binance API error -2015: Invalid API-key, IP, or permissions for action.
+2026-05-08 11:49:32 | INFO     | trading_bot.cli | Trading bot finished | exit_code=1
+2026-05-08 11:53:21 | INFO     | trading_bot.cli | Trading bot started | command=place
+2026-05-08 11:53:21 | DEBUG    | trading_bot.client | BinanceClient initialised. base_url=https://testnet.binance.vision
+2026-05-08 11:53:21 | INFO     | trading_bot.orders | Placing MARKET order | symbol=BTCUSDT side=BUY qty=0.001
+2026-05-08 11:53:21 | DEBUG    | trading_bot.client | REQUEST  method=POST url=https://testnet.binance.vision/api/v3/order params={'symbol': 'BTCUSDT', 'side': 'BUY', 'type': 'MARKET', 'quantity': '0.001', 'timestamp': 1778221401218, 'recvWindow': 5000}
+2026-05-08 11:53:21 | DEBUG    | trading_bot.client | RESPONSE status=401 body={"code":-2015,"msg":"Invalid API-key, IP, or permissions for action."}
+2026-05-08 11:53:21 | ERROR    | trading_bot.client | API error: Binance API error -2015: Invalid API-key, IP, or permissions for action.
+2026-05-08 11:53:21 | ERROR    | trading_bot.orders | Failed to place MARKET order: Binance API error -2015: Invalid API-key, IP, or permissions for action.
+2026-05-08 11:53:21 | INFO     | trading_bot.cli | Trading bot finished | exit_code=1
+2026-05-08 11:56:26 | INFO     | trading_bot.cli | Trading bot started | command=place
+2026-05-08 11:56:26 | DEBUG    | trading_bot.client | BinanceClient initialised. base_url=https://testnet.binance.vision
+2026-05-08 11:56:26 | INFO     | trading_bot.orders | Placing MARKET order | symbol=BTCUSDT side=BUY qty=0.001
+2026-05-08 11:56:26 | DEBUG    | trading_bot.client | REQUEST  method=POST url=https://testnet.binance.vision/api/v3/order params={'symbol': 'BTCUSDT', 'side': 'BUY', 'type': 'MARKET', 'quantity': '0.001', 'timestamp': 1778221586232, 'recvWindow': 5000}
+2026-05-08 11:56:27 | DEBUG    | trading_bot.client | RESPONSE status=200 body={"symbol":"BTCUSDT","orderId":978428,"orderListId":-1,"clientOrderId":"KvYY4xUlLvLZQzdV2lJ9Bp","transactTime":1778221586811,"price":"0.00000000","origQty":"0.00100000","executedQty":"0.00100000","origQuoteOrderQty":"0.00000000","cummulativeQuoteQty":"79.55578000","status":"FILLED","timeInForce":"GTC","type":"MARKET","side":"BUY","workingTime":1778221586811,"fills":[{"price":"79555.78000000","qty":"0.00100000","commission":"0.00000000","commissionAsset":"BTC","tradeId":381945}],"selfTradePreventi
+2026-05-08 11:56:27 | INFO     | trading_bot.orders | MARKET order placed successfully | orderId=978428 status=FILLED
+2026-05-08 11:56:27 | INFO     | trading_bot.cli | Trading bot finished | exit_code=0
+2026-05-08 11:57:09 | INFO     | trading_bot.cli | Trading bot started | command=place
+2026-05-08 11:57:09 | DEBUG    | trading_bot.client | BinanceClient initialised. base_url=https://testnet.binance.vision
+2026-05-08 11:57:09 | INFO     | trading_bot.orders | Placing LIMIT order | symbol=BTCUSDT side=SELL qty=0.001 price=98000 tif=GTC
+2026-05-08 11:57:09 | DEBUG    | trading_bot.client | REQUEST  method=POST url=https://testnet.binance.vision/api/v3/order params={'symbol': 'BTCUSDT', 'side': 'SELL', 'type': 'LIMIT', 'quantity': '0.001', 'price': '98000', 'timeInForce': 'GTC', 'timestamp': 1778221629948, 'recvWindow': 5000}
+2026-05-08 11:57:10 | DEBUG    | trading_bot.client | RESPONSE status=200 body={"symbol":"BTCUSDT","orderId":978869,"orderListId":-1,"clientOrderId":"CGtqx1e88AqYfp3HjoQZ45","transactTime":1778221630386,"price":"98000.00000000","origQty":"0.00100000","executedQty":"0.00000000","origQuoteOrderQty":"0.00000000","cummulativeQuoteQty":"0.00000000","status":"NEW","timeInForce":"GTC","type":"LIMIT","side":"SELL","workingTime":1778221630386,"fills":[],"selfTradePreventionMode":"EXPIRE_MAKER"}
+2026-05-08 11:57:10 | INFO     | trading_bot.orders | LIMIT order placed successfully | orderId=978869 status=NEW
+2026-05-08 11:57:10 | INFO     | trading_bot.cli | Trading bot finished | exit_code=0
+2026-05-08 11:57:18 | INFO     | trading_bot.cli | Trading bot started | command=place
+2026-05-08 11:57:18 | DEBUG    | trading_bot.client | BinanceClient initialised. base_url=https://testnet.binance.vision
+2026-05-08 11:57:18 | ERROR    | trading_bot.cli | Validation error: Price is required for STOP_MARKET orders.
+2026-05-08 11:57:18 | INFO     | trading_bot.cli | Trading bot finished | exit_code=1
+2026-05-08 11:57:30 | INFO     | trading_bot.cli | Trading bot started | command=account
+2026-05-08 11:57:30 | DEBUG    | trading_bot.client | BinanceClient initialised. base_url=https://testnet.binance.vision
+2026-05-08 11:57:30 | INFO     | trading_bot.cli | Fetching account information.
+2026-05-08 11:57:30 | DEBUG    | trading_bot.client | REQUEST  method=GET url=https://testnet.binance.vision/api/v3/account params={'timestamp': 1778221650965, 'recvWindow': 5000}
+2026-05-08 11:57:31 | DEBUG    | trading_bot.client | RESPONSE status=200 body={"makerCommission":0,"takerCommission":0,"buyerCommission":0,"sellerCommission":0,"commissionRates":{"maker":"0.00000000","taker":"0.00000000","buyer":"0.00000000","seller":"0.00000000"},"canTrade":true,"canWithdraw":true,"canDeposit":true,"brokered":false,"requireSelfTradePrevention":false,"preventSor":false,"updateTime":1778221630386,"accountType":"SPOT","balances":[{"asset":"这是测试币","free":"10000.00000000","locked":"0.00000000"},{"asset":"456","free":"10000.00000000","locked":"0.00000000"},{"a
+2026-05-08 11:57:31 | INFO     | trading_bot.cli | Trading bot finished | exit_code=0
+2026-05-08 12:00:18 | INFO     | trading_bot.cli | Trading bot started | command=place
+2026-05-08 12:00:18 | DEBUG    | trading_bot.client | BinanceClient initialised. base_url=https://testnet.binance.vision
+2026-05-08 12:00:18 | INFO     | trading_bot.orders | Placing STOP_MARKET order | symbol=BTCUSDT side=SELL qty=0.001 stopPrice=90000
+2026-05-08 12:00:18 | DEBUG    | trading_bot.client | REQUEST  method=POST url=https://testnet.binance.vision/api/v3/order params={'symbol': 'BTCUSDT', 'side': 'SELL', 'type': 'STOP_MARKET', 'quantity': '0.001', 'stopPrice': '90000', 'timestamp': 1778221818724, 'recvWindow': 5000}
+2026-05-08 12:00:19 | DEBUG    | trading_bot.client | RESPONSE status=400 body={"code":-1116,"msg":"Invalid orderType."}
+2026-05-08 12:00:19 | ERROR    | trading_bot.client | API error: Binance API error -1116: Invalid orderType.
+2026-05-08 12:00:19 | ERROR    | trading_bot.orders | Failed to place STOP_MARKET order: Binance API error -1116: Invalid orderType.
+2026-05-08 12:00:19 | INFO     | trading_bot.cli | Trading bot finished | exit_code=1
+2026-05-08 12:03:37 | INFO     | trading_bot.cli | Trading bot started | command=place
+2026-05-08 12:03:37 | DEBUG    | trading_bot.client | BinanceClient initialised. base_url=https://testnet.binance.vision
+2026-05-08 12:03:37 | INFO     | trading_bot.orders | Placing STOP_MARKET order | symbol=BTCUSDT side=SELL qty=0.001 stopPrice=90000
+2026-05-08 12:03:37 | DEBUG    | trading_bot.client | REQUEST  method=POST url=https://testnet.binance.vision/api/v3/order params={'symbol': 'BTCUSDT', 'side': 'SELL', 'type': 'STOP_MARKET', 'quantity': '0.001', 'stopPrice': '90000', 'timestamp': 1778222017224, 'recvWindow': 5000}
+2026-05-08 12:03:37 | DEBUG    | trading_bot.client | RESPONSE status=400 body={"code":-1116,"msg":"Invalid orderType."}
+2026-05-08 12:03:37 | ERROR    | trading_bot.client | API error: Binance API error -1116: Invalid orderType.
+2026-05-08 12:03:37 | ERROR    | trading_bot.orders | Failed to place STOP_MARKET order: Binance API error -1116: Invalid orderType.
+2026-05-08 12:03:37 | INFO     | trading_bot.cli | Trading bot finished | exit_code=1
+2026-05-08 12:05:09 | INFO     | trading_bot.cli | Trading bot started | command=place
+2026-05-08 12:05:09 | DEBUG    | trading_bot.client | BinanceClient initialised. base_url=https://testnet.binance.vision
+2026-05-08 12:05:09 | INFO     | trading_bot.orders | Placing STOP_MARKET order | symbol=BTCUSDT side=SELL qty=0.001 stopPrice=90000
+2026-05-08 12:05:09 | DEBUG    | trading_bot.client | REQUEST  method=POST url=https://testnet.binance.vision/api/v3/order params={'symbol': 'BTCUSDT', 'side': 'SELL', 'type': 'STOP_MARKET', 'quantity': '0.001', 'stopPrice': '90000', 'timestamp': 1778222109818, 'recvWindow': 5000}
+2026-05-08 12:05:10 | DEBUG    | trading_bot.client | RESPONSE status=400 body={"code":-1116,"msg":"Invalid orderType."}
+2026-05-08 12:05:10 | ERROR    | trading_bot.client | API error: Binance API error -1116: Invalid orderType.
+2026-05-08 12:05:10 | ERROR    | trading_bot.orders | Failed to place STOP_MARKET order: Binance API error -1116: Invalid orderType.
+2026-05-08 12:05:10 | INFO     | trading_bot.cli | Trading bot finished | exit_code=1
+2026-05-08 12:08:39 | INFO     | trading_bot.cli | Trading bot started | command=place
+2026-05-08 12:08:39 | DEBUG    | trading_bot.client | BinanceClient initialised. base_url=https://testnet.binance.vision
+2026-05-08 12:08:39 | INFO     | trading_bot.orders | Placing STOP_MARKET order | symbol=BTCUSDT side=SELL qty=0.001 stopPrice=90000
+2026-05-08 12:08:39 | DEBUG    | trading_bot.client | REQUEST  method=POST url=https://testnet.binance.vision/api/v3/order params={'symbol': 'BTCUSDT', 'side': 'SELL', 'type': 'STOP_LOSS_LIMIT', 'quantity': '0.001', 'stopPrice': '90000', 'price': '90000', 'timeInForce': 'GTC', 'timestamp': 1778222319506, 'recvWindow': 5000}
+2026-05-08 12:08:40 | DEBUG    | trading_bot.client | RESPONSE status=400 body={"code":-2010,"msg":"Stop price would trigger immediately."}
+2026-05-08 12:08:40 | ERROR    | trading_bot.client | API error: Binance API error -2010: Stop price would trigger immediately.
+2026-05-08 12:08:40 | ERROR    | trading_bot.orders | Failed to place STOP_MARKET order: Binance API error -2010: Stop price would trigger immediately.
+2026-05-08 12:08:40 | INFO     | trading_bot.cli | Trading bot finished | exit_code=1
+2026-05-08 12:09:26 | INFO     | trading_bot.cli | Trading bot started | command=place
+2026-05-08 12:09:26 | DEBUG    | trading_bot.client | BinanceClient initialised. base_url=https://testnet.binance.vision
+2026-05-08 12:09:26 | INFO     | trading_bot.orders | Placing STOP_MARKET order | symbol=BTCUSDT side=SELL qty=0.001 stopPrice=70000
+2026-05-08 12:09:26 | DEBUG    | trading_bot.client | REQUEST  method=POST url=https://testnet.binance.vision/api/v3/order params={'symbol': 'BTCUSDT', 'side': 'SELL', 'type': 'STOP_LOSS_LIMIT', 'quantity': '0.001', 'stopPrice': '70000', 'price': '70000', 'timeInForce': 'GTC', 'timestamp': 1778222366597, 'recvWindow': 5000}
+2026-05-08 12:09:27 | DEBUG    | trading_bot.client | RESPONSE status=200 body={"symbol":"BTCUSDT","orderId":985252,"orderListId":-1,"clientOrderId":"TCuRXrfFgyFZCRfSNuFU2L","transactTime":1778222367008}
+2026-05-08 12:09:27 | INFO     | trading_bot.orders | STOP_MARKET order placed | orderId=985252 status=None
+2026-05-08 12:09:27 | INFO     | trading_bot.cli | Trading bot finished | exit_code=0
+2026-05-08 16:22:57 | INFO     | trading_bot.cli | Trading bot started | command=account
+2026-05-08 16:22:57 | DEBUG    | trading_bot.client | BinanceClient initialised. base_url=https://testnet.binance.vision
+2026-05-08 16:22:57 | INFO     | trading_bot.cli | Fetching account information.
+2026-05-08 16:22:57 | DEBUG    | trading_bot.client | REQUEST  method=GET url=https://testnet.binance.vision/api/v3/account params={'timestamp': 1778237577918, 'recvWindow': 5000}
+2026-05-08 16:22:58 | DEBUG    | trading_bot.client | RESPONSE status=200 body={"makerCommission":0,"takerCommission":0,"buyerCommission":0,"sellerCommission":0,"commissionRates":{"maker":"0.00000000","taker":"0.00000000","buyer":"0.00000000","seller":"0.00000000"},"canTrade":true,"canWithdraw":true,"canDeposit":true,"brokered":false,"requireSelfTradePrevention":false,"preventSor":false,"updateTime":1778222367008,"accountType":"SPOT","balances":[{"asset":"这是测试币","free":"10000.00000000","locked":"0.00000000"},{"asset":"456","free":"10000.00000000","locked":"0.00000000"},{"a
+2026-05-08 16:22:58 | INFO     | trading_bot.cli | Trading bot finished | exit_code=0
+2026-05-08 16:27:41 | INFO     | trading_bot.cli | Trading bot started | command=account
+2026-05-08 16:27:41 | DEBUG    | trading_bot.client | BinanceClient initialised. base_url=https://testnet.binance.vision
+2026-05-08 16:27:41 | INFO     | trading_bot.cli | Fetching account information.
+2026-05-08 16:27:41 | DEBUG    | trading_bot.client | REQUEST  method=GET url=https://testnet.binance.vision/api/v3/account params={'timestamp': 1778237861942, 'recvWindow': 5000}
+2026-05-08 16:27:42 | DEBUG    | trading_bot.client | RESPONSE status=200 body={"makerCommission":0,"takerCommission":0,"buyerCommission":0,"sellerCommission":0,"commissionRates":{"maker":"0.00000000","taker":"0.00000000","buyer":"0.00000000","seller":"0.00000000"},"canTrade":true,"canWithdraw":true,"canDeposit":true,"brokered":false,"requireSelfTradePrevention":false,"preventSor":false,"updateTime":1778222367008,"accountType":"SPOT","balances":[{"asset":"这是测试币","free":"10000.00000000","locked":"0.00000000"},{"asset":"456","free":"10000.00000000","locked":"0.00000000"},{"a
+2026-05-08 16:27:42 | INFO     | trading_bot.cli | Trading bot finished | exit_code=0
