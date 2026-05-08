@@ -1,6 +1,6 @@
 # Binance Futures Testnet Trading Bot
 
-A clean, production-structured Python CLI application for placing orders on the **Binance Futures USDT-M Testnet**.
+A clean, production-structured Python CLI application for placing orders on the **Binance Spot Testnet** (`testnet.binance.vision`).
 
 ---
 
@@ -39,20 +39,23 @@ trading_bot/
 
 ## Setup
 
-### 1. Clone / unzip the project
+### 1. Clone the repository
 
 ```bash
-cd trading_bot
+git clone https://github.com/SaiRupesh07/Binance-Futures-Testnet-Trading-Bot.git
+cd Binance-Futures-Testnet-Trading-Bot
 ```
 
 ### 2. Create and activate a virtual environment
 
 ```bash
 python -m venv .venv
+
 # Linux / macOS
 source .venv/bin/activate
-# Windows
-.venv\Scripts\activate
+
+# Windows (PowerShell)
+.venv\Scripts\Activate.ps1
 ```
 
 ### 3. Install dependencies
@@ -61,26 +64,24 @@ source .venv/bin/activate
 pip install -r requirements.txt
 ```
 
-### 4. Register on Binance Futures Testnet
+### 4. Register on Binance Spot Testnet
 
-1. Go to [https://testnet.binancefuture.com](https://testnet.binancefuture.com)
-2. Log in / register (separate from your main Binance account)
-3. Navigate to **API Management** → generate a new API key pair
-4. Copy the **API Key** and **Secret Key**
+1. Go to [https://testnet.binance.vision](https://testnet.binance.vision)
+2. Click **"Log In with GitHub"**
+3. Click **"Generate HMAC_SHA256 Key"**
+4. Enter a description, make sure **TRADE** and **USER_DATA** are checked
+5. Click **Generate** and copy both the **API Key** and **Secret Key**
 
-### 5. Set environment variables
+> Note: The Binance Futures Testnet (`testnet.binancefuture.com`) may be geo-restricted in some regions (e.g. India). The Spot Testnet (`testnet.binance.vision`) provides equivalent functionality for testing order placement.
 
-```bash
-# Linux / macOS
-export BINANCE_TESTNET_API_KEY="your_api_key_here"
-export BINANCE_TESTNET_API_SECRET="your_secret_here"
+### 5. Create a `.env` file in the project root
 
-# Windows (PowerShell)
-$env:BINANCE_TESTNET_API_KEY="your_api_key_here"
-$env:BINANCE_TESTNET_API_SECRET="your_secret_here"
+```
+BINANCE_TESTNET_API_KEY=your_api_key_here
+BINANCE_TESTNET_API_SECRET=your_secret_here
 ```
 
-> The bot reads credentials **only** from environment variables — they are never hard-coded or stored on disk.
+> The bot reads credentials from the `.env` file automatically via `python-dotenv`. Never commit this file to Git.
 
 ---
 
@@ -106,11 +107,7 @@ python cli.py account
 ### Place a MARKET order
 
 ```bash
-python cli.py place \
-  --symbol BTCUSDT \
-  --side BUY \
-  --type MARKET \
-  --quantity 0.001
+python cli.py place --symbol BTCUSDT --side BUY --type MARKET --quantity 0.001
 ```
 
 **Output:**
@@ -125,12 +122,14 @@ python cli.py place \
 ────────────────────────────────────────────────────────────
   ORDER RESPONSE DETAILS
 ────────────────────────────────────────────────────────────
-  orderId      : 4729301823
-  clientOrderId: web_xKd8Aj2m1pQn
+  orderId      : 978428
+  clientOrderId: KvYY4xUlLvLZQzdV2lJ9Bp
   status       : FILLED
-  executedQty  : 0.001
-  avgPrice     : 96432.10
-  ...
+  executedQty  : 0.00100000
+  price        : 0.00000000
+  type         : MARKET
+  side         : BUY
+  timeInForce  : GTC
 ────────────────────────────────────────────────────────────
 ✔ Order placed successfully!
 ```
@@ -138,26 +137,18 @@ python cli.py place \
 ### Place a LIMIT order
 
 ```bash
-python cli.py place \
-  --symbol BTCUSDT \
-  --side SELL \
-  --type LIMIT \
-  --quantity 0.001 \
-  --price 98000
+python cli.py place --symbol BTCUSDT --side SELL --type LIMIT --quantity 0.001 --price 98000
 ```
 
 ### Place a STOP_MARKET order (bonus)
 
 ```bash
-python cli.py place \
-  --symbol BTCUSDT \
-  --side SELL \
-  --type STOP_MARKET \
-  --quantity 0.001 \
-  --stop-price 90000
+python cli.py place --symbol BTCUSDT --side SELL --type STOP_MARKET --quantity 0.001 --stop-price 70000
 ```
 
-### Increase log verbosity (console)
+> Note: Stop price must be **below** the current market price for SELL stop orders.
+
+### Increase log verbosity
 
 ```bash
 python cli.py --log-level DEBUG place --symbol BTCUSDT --side BUY --type MARKET --quantity 0.001
@@ -175,10 +166,10 @@ Logs are written to `logs/trading_bot.log` automatically.
 
 Example log lines:
 ```
-2025-05-08 10:13:15 | INFO     | trading_bot.orders | Placing MARKET order | symbol=BTCUSDT side=BUY qty=0.001
-2025-05-08 10:13:16 | DEBUG    | trading_bot.client | REQUEST  method=POST url=.../fapi/v1/order params={...}
-2025-05-08 10:13:16 | DEBUG    | trading_bot.client | RESPONSE status=200 body={...}
-2025-05-08 10:13:16 | INFO     | trading_bot.orders | MARKET order placed successfully | orderId=4729301823 status=FILLED
+2026-05-08 11:56:26 | INFO  | trading_bot.orders | Placing MARKET order | symbol=BTCUSDT side=BUY qty=0.001
+2026-05-08 11:56:27 | INFO  | trading_bot.orders | MARKET order placed successfully | orderId=978428 status=FILLED
+2026-05-08 11:57:09 | INFO  | trading_bot.orders | Placing LIMIT order | symbol=BTCUSDT side=SELL qty=0.001 price=98000 tif=GTC
+2026-05-08 11:57:10 | INFO  | trading_bot.orders | LIMIT order placed successfully | orderId=978869 status=NEW
 ```
 
 ---
@@ -188,28 +179,30 @@ Example log lines:
 | Scenario | Behaviour |
 |---|---|
 | Missing env var | Prints guidance, exits with code 1 |
-| Invalid side / type | `validate_all()` raises `ValueError`, prints message, no API call made |
+| Invalid side / type | `validate_all()` raises `ValueError`, no API call made |
 | Price missing for LIMIT | Validation error before any network activity |
-| API error (e.g. -1111) | `BinanceAPIError` caught, logged, printed, exit code 1 |
-| Network timeout / refused | `requests` exception caught, logged, printed, exit code 1 |
+| API error (e.g. -2015) | `BinanceAPIError` caught, logged, printed, exit code 1 |
+| Network timeout | `requests` exception caught, logged, printed, exit code 1 |
 
 ---
 
 ## Assumptions
 
-- **USDT-M Futures only** — the base URL is fixed to `https://testnet.binancefuture.com/fapi`
-- `timeInForce` for LIMIT orders defaults to `GTC` (Good Till Cancelled); this is the standard testnet default
-- Quantity and price precision must match the symbol's exchange filters (Binance returns `-1111` if not)
-- The bot does **not** auto-adjust precision — if you hit `-1111`, check the symbol's `LOT_SIZE` and `PRICE_FILTER` via `GET /fapi/v1/exchangeInfo`
-- Credentials are read from environment variables only (12-factor app principle)
+- Uses **Binance Spot Testnet** (`testnet.binance.vision`) with `/api/v3/` endpoints
+- The Futures Testnet (`testnet.binancefuture.com`) is geo-restricted in India — Spot Testnet provides equivalent order-placement testing
+- `timeInForce` for LIMIT orders defaults to `GTC` (Good Till Cancelled)
+- STOP_MARKET orders are implemented as `STOP_LOSS_LIMIT` on the Spot testnet (Futures-only order type mapped to nearest equivalent)
+- Stop price for SELL stop orders must be below current market price
+- Credentials are loaded from `.env` file via `python-dotenv` (12-factor app principle)
 
 ---
 
 ## Dependencies
 
 ```
-requests>=2.31.0   # HTTP client for REST API calls
-colorama>=0.4.6    # Cross-platform ANSI colour support (graceful fallback if absent)
+requests>=2.31.0      # HTTP client for REST API calls
+colorama>=0.4.6       # Cross-platform ANSI colour support
+python-dotenv>=1.0.0  # Load credentials from .env file
 ```
 
 No `python-binance` dependency — all API interaction is implemented via direct REST calls with HMAC-SHA256 signing.
